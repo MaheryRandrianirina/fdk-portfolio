@@ -12,8 +12,8 @@ const Header: FC<{
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon" />
       </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav ml-auto">
+      <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul className="navbar-nav">
             <Home isActive={active === "home"}/>
             <Services isActive={active === "services"}/>
             <Technologies isActive={active === "techno"}/>
@@ -30,7 +30,9 @@ const Home: FC<{
 
     const clickItemEventHandler: MouseEventHandler<HTMLLIElement> = useContext(ClickMenuContext);
 
-    return <li className={"home nav-item" + (isActive ? " active" : "")} onClick={clickItemEventHandler}>Accueil</li>
+    return <li className={"home nav-item" + (isActive ? " active" : "")} onClick={clickItemEventHandler}>
+        <a href="#" className="nav-link">Accueil</a>
+    </li>
 }
 
 const Services: FC<{
@@ -39,7 +41,9 @@ const Services: FC<{
 
     const clickItemEventHandler: MouseEventHandler<HTMLLIElement> = useContext(ClickMenuContext);
 
-    return <li className={"services nav-item" + (isActive ? " active" : "")} onClick={clickItemEventHandler}>Services</li>
+    return <li className={"services nav-item" + (isActive ? " active" : "")} onClick={clickItemEventHandler}>
+        <a href="#" className="nav-link">Services</a>
+    </li>
 }
 
 const Technologies: FC<{
@@ -48,7 +52,9 @@ const Technologies: FC<{
 
     const clickItemEventHandler: MouseEventHandler<HTMLLIElement> = useContext(ClickMenuContext);
 
-    return <li className={"techno nav-item"  + (isActive ? " active" : "")} onClick={clickItemEventHandler}>Technologies</li>
+    return <li className={"techno nav-item"  + (isActive ? " active" : "")} onClick={clickItemEventHandler}>
+        <a href="#" className="nav-link">Technologies</a>
+    </li>
 }
 
 const Contact: FC<{
@@ -57,7 +63,9 @@ const Contact: FC<{
 
     const clickItemEventHandler: MouseEventHandler<HTMLLIElement> = useContext(ClickMenuContext);
 
-    return <li className={"contact nav-item" + (isActive ? " active" : "")} onClick={clickItemEventHandler}>Contact</li>
+    return <li className={"contact nav-item" + (isActive ? " active" : "")} onClick={clickItemEventHandler}>
+        <a href="Contact" className="nav-link"></a>
+    </li>
 }
 
 export {
