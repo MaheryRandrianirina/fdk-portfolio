@@ -8,6 +8,8 @@ import {
 import { Header } from "./header";
 import { ClickMenuContext } from "../contexts";
 import { activeItemType } from "../types/components-props-types";
+import { Banner } from "./sections/banner";
+import { ServicesSection } from "./sections/services";
 
 export function Portfolio(): ReactElement {
 
@@ -21,9 +23,11 @@ export function Portfolio(): ReactElement {
         setActiveItem(e.currentTarget.classList[0] as activeItemType);
     }
     
-    return <div id="portfolio">
+    return <div id="portfolio" className="bg-dark">
         <ClickMenuContext.Provider value={clickMenuHandler}>
             <Header active={activeItem}/>
         </ClickMenuContext.Provider>
+        <Banner/>
+        <ServicesSection/>
     </div>
 }

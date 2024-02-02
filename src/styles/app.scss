@@ -1,2 +1,29 @@
 @import "./bootstrap/bootstrap.scss";
 
+html, body {
+    height: 100%;
+    scroll-behavior: smooth;
+    font-family: "Roboto";
+}
+
+.nav-item.active {
+    position: relative;
+    z-index: 10;
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        background-color: $primary;
+        width: 50px;
+        height: 100%;
+        z-index: 8
+    }
+
+    .nav-link {
+        position: relative;
+        z-index: 12
+    }
+    
+}
+@import "./svg.scss";
+@import "./buttons.scss";
