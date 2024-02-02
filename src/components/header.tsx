@@ -6,7 +6,7 @@ const Header: FC<{
     active: activeItemType
 }> = ({active})=>{
     
-    return <nav className="navbar navbar-expand-lg p-5">
+    return <nav className="navbar navbar-expand-lg p-5 position-fixed top-0 start-0 end-0 bg-dark">
     <div className="container-fluid">
       <a className="navbar-brand text-light ms-5" href="#">Logo</a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
