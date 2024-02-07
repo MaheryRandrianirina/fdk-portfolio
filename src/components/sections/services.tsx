@@ -1,17 +1,31 @@
-import { CSSProperties, FC, LegacyRef, PropsWithChildren, forwardRef } from "react";
+import { CSSProperties, FC, LegacyRef, PropsWithChildren, forwardRef, useContext } from "react";
+import { ClassnamesContext } from "../../contexts";
 
 export const ServicesSection = forwardRef((props, ref:LegacyRef<HTMLElement>)=>{
-    return <section ref={ref} id="services" className="text-light px-4"  style={{marginBottom: "48px"}}>
-        <h2 style={{marginBottom: "24px"}}>Nos services</h2>
-        <div className="d-flex justify-content-between flex-wrap position-relative">
-            <Service imgLink={"/vitrine.jpg"} title="Site vitrine">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto porro laboriosam possimus libero omnis laudantium eaque officia et, alias odio saepe nam temporibus, consectetur praesentium optio corporis quas deleniti sed.
+
+    const classnames = useContext(ClassnamesContext);
+
+    return <section ref={ref} id="services" className="px-4"  style={{marginBottom: "100px"}}>
+        <h2 style={{marginBottom: "24px"}} className="text-light text-center">Nos services</h2>
+        <p style={{marginBottom: "48px"}} className={"text-light text-center services-desc " +  classnames.services}>
+            Chez nous, nous sommes dédiés à transformer vos idées en réalité. 
+            Nous offrons une gamme de services comprenant la création de sites vitrines, 
+            le développement d’applications web et la mise en place de sites e-commerce. 
+            Chaque projet est traité avec soin et attention, garantissant un produit final 
+            qui non seulement répond à vos besoins, mais les dépasse. 
+            <a href="#contact" className="nav-link text-primary">Contactez-nous</a> aujourd’hui pour commencer à donner vie à vos idées.
+        </p>
+        <div className="d-flex justify-content-between flex-wrap">
+            <Service className={classnames.services} imgLink={"/vitrine.jpg"} title="Site vitrine">
+                Lorem ipsum dolor sit amet consectetur, 
             </Service>
-            <Service style={{transform: "translateY(50%)"}} imgLink={"/app.jpg"} title="Application web">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nisi vel reprehenderit dolore, aliquam ipsum voluptas! Fugit corrupti iste obcaecati iusto eos officia adipisci sit nobis dolorum, sequi delectus necessitatibus.</Service>
-            <Service imgLink={"/ecommerce.jpg"} title="Site e-commerce">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nisi vel reprehenderit dolore, aliquam ipsum voluptas! Fugit corrupti iste obcaecati iusto eos officia adipisci sit nobis dolorum, sequi delectus necessitatibus.</Service>
+            <Service className={classnames.services} imgLink={"/app.jpg"} title="Application web">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            </Service>
+            <Service className={classnames.services} imgLink={"/ecommerce.jpg"} title="Site e-commerce">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            </Service>
         </div>
     </section>
-})
+});
 
 const Service: FC<PropsWithChildren & {
     className?: string,
@@ -19,11 +33,14 @@ const Service: FC<PropsWithChildren & {
     imgLink: string,
     style?: CSSProperties
 }> = ({children, className, title, imgLink, style})=>{
-    return <div style={style} className={"service position-relative" + (className ? " " + className : "")}>
-        <div className="img-container position-relative">
-            <h5 className="position-absolute text-light" style={{top: "12px", left: "12px"}}>{title}</h5>
-            <img src={imgLink} alt="site vitrine"/>
+
+    return <div style={style} className={"service card position-relative" + (className ? " " + className : "")}>
+        <div className="card-header">
+        <h5 className="card-title text-center">{title}</h5>
         </div>
-        <p className="bg-light text-dark start-0 end-0 p-3" style={{width: "calc(100% - 10px)"}}>{children}</p>
+        <img src={imgLink} className="card-img" alt="site vitrine"/>
+        <div className="card-body position-sticky bottom-0 bg-light">
+            <p className="card-text">{children}</p>
+        </div>
     </div>
 }
