@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/**/*.[jt]s": {
+    "src/**/*.[jt]s": {
       "runtime": "@vercel/node@1.3.1"
     }
   },
