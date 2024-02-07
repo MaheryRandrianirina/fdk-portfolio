@@ -2,7 +2,7 @@
    "routes": [
       {
         "src": "/.*",
-        "dest": "/dist/server/server.js"
+        "dest": "/dist/server/entry-server.js"
       }
     ]
 }
